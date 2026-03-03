@@ -38,7 +38,8 @@
 .mario {
     width: 130px;           /* Tamanho do Mario */
     position: absolute;     /* Posicionamento livre */
-    bottom: 0;              /* Começa no chão */
+    bottom: 0;      
+ z-index: 1000; /* Começa no chão */
 }
 
 /* Classe que faz o Mario pular (ativada pelo JavaScript) */
