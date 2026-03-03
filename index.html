@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario Jump - Aprenda Programar</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- ================================================== -->
+    <!-- AREA PRINCIPAL DO JOGO - Tudo acontece aqui dentro -->
+    <!-- ================================================== -->
+    <div class="jogo">
+
+        <!-- PERSONAGEM - Mario que vai pular -->
+        <img src="./img/gif.gif" class="mario" alt="Mario">
+
+        <!-- OBSTACULO - Cano que o Mario precisa pular -->
+        <img src="./img/bolo.png" class="cano" alt="Cano">
+
+        <!-- FUNDO - Nuvem que se move devagar -->
+        <img src="./img/nuvem.png" class="nuvem"  alt ="Nuvem">
+        <!--
+            PARA ADICIONAR MOEDA:
+            <img src="moeda.png" class="moeda" alt="Moeda">
+        -->
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- TELA DE GAME OVER - Aparece quando o Mario bate -->
+    <!-- ================================================== -->
+    <div class="fim">
+        <button class="reiniciar">JOGAR NOVAMENTE</button>
+    </div>
+
+    <!-- ================================================== -->
+    <!-- INSTRUÇÕES NA TELA (opcional) -->
+    <!-- ================================================== -->
+    <div style="text-align: center; margin-top: 20px; font-family: Arial;">
+        <p>▶ Pressione QUALQUER TELA ou CLIQUE para pular</p>
+    </div>
+
+</body>
+</html>

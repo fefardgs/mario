@@ -1,0 +1,142 @@
+/* ================================================== */
+/* RESET - Remove todas as configurações padrão */
+/* ================================================== */
+* {
+    margin: 0;           /* Remove espaços externos */
+    padding: 0;          /* Remove espaços internos */
+    box-sizing: border-box; /* Bordas não aumentam o tamanho */
+}
+
+/* ================================================== */
+/* ÁREA DO JOGO - O palco principal */
+/* ================================================== */
+.jogo {
+    width: 100%;            /* Ocupa toda largura */
+    height: 400px;          /* Altura fixa */
+    border-bottom: 50px solid rgb(230, 61, 193); /* Cria o chão */
+    margin: 0 auto;         /* Centraliza */
+    position: relative;     /* IMPORTANTE: elementos com position:absolute ficam DENTRO */
+    overflow: hidden;       /* Esconde o que sai da tela */
+    background: linear-gradient(#f74cb5, #f1b8ea); /* Céu azul */
+}
+
+/* ================================================== */
+/* OBSTÁCULO - Cano que vem da direita */
+/* ================================================== */
+.cano {
+    position: absolute;     /* Pode ser posicionado livremente */
+    bottom: 0;              /* Colado no chão */
+    width: 60px;            /* Largura do cano */
+
+    /* ANIMAÇÃO: nome | duração | repetição | velocidade */
+    animation: mexerCano 1.5s infinite linear;
+}
+
+/* ================================================== */
+/* PERSONAGEM - Mario */
+/* ================================================== */
+.mario {
+    width: 130px;           /* Tamanho do Mario */
+    position: absolute;     /* Posicionamento livre */
+    bottom: 0;              /* Começa no chão */
+}
+
+/* Classe que faz o Mario pular (ativada pelo JavaScript) */
+.pular {
+    animation: pularMario 500ms ease-out;
+}
+
+/* ================================================== */
+/* NUVEM - Elemento de fundo */
+/* ================================================== */
+.nuvem {
+    width: 300px;           /* Nuvem bem grande */
+    position: absolute;
+    animation: mexerNuvem 20s infinite linear; /* Mais lenta (fundo) */
+}
+
+/* ================================================== */
+/* TELA DE FIM - Game Over */
+/* ================================================== */
+.fim {
+    visibility: hidden;     /* Invisível até perder */
+
+    /* Centraliza o botão */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Cobre a tela toda */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    /* Fundo escuro semi-transparente */
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* ================================================== */
+/* BOTÃO DE REINICIAR */
+/* ================================================== */
+.reiniciar {
+    height: 60px;           /* Altura */
+    width: 300px;           /* Largura */
+    border-radius: 10px;    /* Borda arredondada */
+    border: none;           /* Sem borda */
+    font-size: 20px;        /* Tamanho da letra */
+    background-color: #f8aff2; /* Vermelho */
+    color: white;           /* Letra branca */
+    cursor: pointer;        /* Mãozinha ao passar o mouse */
+    font-weight: bold;      /* Negrito */
+}
+
+.reiniciar:hover {
+    background-color: #d113a2; /* Vermelho mais escuro ao passar mouse */
+}
+
+/* ================================================== */
+/* ANIMAÇÕES - Definem os movimentos */
+/* ================================================== */
+
+/* Cano se move da direita para esquerda */
+@keyframes mexerCano {
+    from {
+        right: -60px;       /* Começa fora da tela à direita */
+    }
+    to {
+        right: 100%;        /* Termina fora da tela à esquerda */
+    }
+}
+
+/* Mario sobe e desce */
+@keyframes pularMario {
+    0% { bottom: 0; }       /* No chão */
+    50% { bottom: 150px; }  /* Lá em cima */
+    100% { bottom: 0; }     /* Volta ao chão */
+}
+
+/* Nuvem se move lentamente */
+@keyframes mexerNuvem {
+    from {
+        right: -500px;      /* Começa fora */
+    }
+    to {
+        right: 100%;        /* Atravessa a tela */
+    }
+}
+
+/* ================================================== */
+/* CELULAR - Tela menor */
+/* ================================================== */
+@media (max-width: 620px) {
+    .mario {
+        width: 100px;       /* Mario menor no celular */
+    }
+
+    .cano {
+        width: 45px;        /* Cano menor */
+        animation: mexerCano 1.2s infinite linear; /* Mais rápido */
+    }
+}
